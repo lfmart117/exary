@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Exary HQ — Agenda</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="js/early-theme.js"></script>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/settings.css"/>
+<link rel="stylesheet" href="css/agenda.css"/>
+</head>
+<body>
+<div class="page-bg"></div>
+
+<script src="js/icons.js"></script>
+<script src="js/state.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/dialogs.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/notify.js"></script>
+<script>injectSidebar('agenda');</script>
+
+<div class="page-wrap">
+  <div class="topbar">
+    <span class="topbar-title">Agenda</span>
+    <button class="btn btn-primary" id="newTaskBtn">
+      <span data-icon="plus"></span>
+      <span>Nueva actividad</span>
+    </button>
+  </div>
+
+  <div class="content">
+    <div class="agenda-filters">
+      <button class="agenda-filter active" data-filter="todas">Todas</button>
+      <button class="agenda-filter" data-filter="pendientes">Pendientes</button>
+      <button class="agenda-filter" data-filter="completadas">Completadas</button>
+    </div>
+
+    <div id="taskList"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" style="display:none">
+  <div class="modal card">
+    <div class="modal-header">
+      <span class="modal-title">Nueva actividad</span>
+      <button class="modal-close" id="modalClose" data-icon="close"></button>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Nombre</label>
+      <input type="text" class="input" id="taskName" placeholder="Ej: Estudiar capítulo 3"/>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Fecha de entrega</label>
+      <div id="taskDateWrap"></div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Categoría</label>
+      <div id="taskCatWrap"></div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Complejidad</label>
+      <div id="taskDiffWrap"></div>
+    </div>
+    <button class="btn btn-primary" id="saveTask" style="width:100%">
+      <span data-icon="check"></span>
+      <span>Guardar actividad</span>
+    </button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="js/catpicker.js"></script>
+<script src="js/datepicker.js"></script>
+<script src="js/agenda.js"></script>
+</body>
+</html>

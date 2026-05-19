@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Exary HQ — Chat con IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="js/early-theme.js"></script>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/settings.css"/>
+<link rel="stylesheet" href="css/chat.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+<div class="page-bg"></div>
+
+<script src="js/icons.js"></script>
+<script src="js/state.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/dialogs.js"></script>
+<script src="js/dropdown.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/notify.js"></script>
+<script>injectSidebar('chat');</script>
+
+<div class="page-wrap">
+  <div class="topbar">
+    <span class="topbar-title">Chat con IA</span>
+    <div id="docSelectorWrap" style="width:280px"></div>
+    <button class="btn btn-ghost" id="clearChatBtn" style="gap:6px;font-size:12px">
+      <span data-icon="trash"></span><span>Limpiar</span>
+    </button>
+  </div>
+
+  <div class="chat-layout">
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-empty">
+        <div class="chat-empty-icon" data-icon="bot"></div>
+        <p style="font-size:15px;font-weight:500;color:var(--text)">Selecciona un documento</p>
+        <p style="font-size:12.5px;color:var(--muted)">El chat cargará el historial correspondiente</p>
+      </div>
+    </div>
+
+    <div class="chat-input-bar">
+      <input type="text" id="chatInput" class="input" placeholder="Escribe tu pregunta..." disabled/>
+      <button class="btn btn-primary chat-send" id="chatSend" disabled>
+        <span data-icon="send"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>

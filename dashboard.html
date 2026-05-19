@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Exary HQ — Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="js/early-theme.js"></script>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/settings.css"/>
+<link rel="stylesheet" href="css/dashboard.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dash-body">
+<div class="page-bg"></div>
+
+<script src="js/icons.js"></script>
+<script src="js/state.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/notify.js"></script>
+<script>injectSidebar('dashboard');</script>
+
+<div class="page-wrap">
+  <div class="topbar">
+    <span class="topbar-title">Dashboard</span>
+    <span id="dashDate" style="font-size:12.5px;color:var(--muted)"></span>
+  </div>
+
+  <div class="content">
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-card card fade-up">
+        <div class="stat-icon-wrap" data-icon="filesIcon"></div>
+        <div class="stat-info">
+          <div class="stat-label">Documentos totales</div>
+          <div class="stat-value" id="statDocs">0</div>
+        </div>
+      </div>
+      <div class="stat-card card fade-up">
+        <div class="stat-icon-wrap" data-icon="clock"></div>
+        <div class="stat-info">
+          <div class="stat-label">Tareas pendientes</div>
+          <div class="stat-value" id="statPending">0</div>
+        </div>
+      </div>
+      <div class="stat-card card fade-up">
+        <div class="stat-icon-wrap" data-icon="bot"></div>
+        <div class="stat-info">
+          <div class="stat-label">Consultas al agente</div>
+          <div class="stat-value" id="statChats">0</div>
+        </div>
+      </div>
+      <div class="stat-card card fade-up">
+        <div class="stat-icon-wrap" data-icon="trending"></div>
+        <div class="stat-info">
+          <div class="stat-label">% Completado</div>
+          <div class="stat-value" id="statPct">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mid-grid">
+      <div class="card fade-up">
+        <div class="card-title">
+          <span data-icon="sparkle"></span>
+          <span>Top 3 — Prioridades</span>
+        </div>
+        <div id="topTasks" class="task-list"></div>
+      </div>
+      <div class="card fade-up">
+        <div class="card-title">
+          <span data-icon="documents"></span>
+          <span>Top 3 — Documentos urgentes</span>
+        </div>
+        <div id="topDocs" class="task-list"></div>
+      </div>
+    </div>
+
+    <!-- CHARTS — fills remaining height -->
+    <div class="chart-pair-grid">
+      <div class="card fade-up chart-bar-card">
+        <div class="card-title">
+          <span data-icon="trending"></span>
+          <span>Progreso por categoría</span>
+        </div>
+        <div class="chart-bar-wrap" id="barWrap">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+      <div class="card fade-up chart-donut-card" id="donutCard">
+        <div class="card-title">
+          <span data-icon="sparkle"></span>
+          <span>Distribución</span>
+        </div>
+        <div class="chart-donut-wrap">
+          <canvas id="donutChart"></canvas>
+        </div>
+        <div class="donut-list" id="donutList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Exary HQ — Acceso</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="js/early-theme.js"></script>
+<script>
+  /* Index page: forzar colores azul/rojo como default */
+  (function() {
+    var s = document.documentElement.style;
+    s.setProperty('--accent-1', '#4a6cf7');
+    s.setProperty('--accent-2', '#e63946');
+    s.setProperty('--grad',      'linear-gradient(135deg, #4a6cf7, #e63946)');
+    s.setProperty('--grad-h',    'linear-gradient(135deg, #4a6cf7dd, #e63946dd)');
+    s.setProperty('--grad-soft', '#4a6cf71a');
+  })();
+</script>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div class="page-bg"></div>
+
+<button class="theme-toggle theme-fab">
+  <span class="theme-icon-slot"></span>
+</button>
+
+<div class="auth-layout">
+  <div class="auth-left">
+    <div class="auth-brand">
+      <img src="assets/logo.png" alt="Exary HQ" style="width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 4px 20px rgba(79,142,247,0.4))">
+      <span class="brand-name">Exary</span>
+    </div>
+    <h1 class="auth-headline">Tu espacio de<br/>productividad inteligente</h1>
+    <p class="auth-sub">Gestiona documentos, conversa con tu IA personal y organiza tu agenda desde un solo lugar.</p>
+    <ul class="feature-list">
+      <li><span class="feat-icon" data-icon="documents"></span>Gestión de documentos multi-formato</li>
+      <li><span class="feat-icon" data-icon="bot"></span>Chat IA por documento con contexto</li>
+      <li><span class="feat-icon" data-icon="agenda"></span>Agenda automática y manual</li>
+      <li><span class="feat-icon" data-icon="dashboard"></span>Dashboard con estadísticas en tiempo real</li>
+      <li><span class="feat-icon" data-icon="sparkle"></span>Priorización inteligente de tareas</li>
+    </ul>
+  </div>
+
+  <div class="auth-right">
+    <div class="auth-panel card">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Iniciar sesión</button>
+        <button class="auth-tab" data-tab="register">Registrarse</button>
+      </div>
+
+      <form class="auth-form active" id="loginForm">
+        <div class="field-group">
+          <label class="field-label">Correo</label>
+          <div class="input-wrap">
+            <span class="input-icon" data-icon="mail"></span>
+            <input type="email" class="input has-icon" id="loginEmail" placeholder="tu@correo.com" required/>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Contraseña</label>
+          <div class="input-wrap">
+            <span class="input-icon" data-icon="lock"></span>
+            <input type="password" class="input has-icon" id="loginPass" placeholder="••••••••" required/>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">
+          <span>Entrar</span>
+          <span data-icon="arrowRight"></span>
+        </button>
+        <p class="auth-error" id="loginError"></p>
+      <a href="#" id="forgotLink" class="forgot-link">¿Olvidaste tu contraseña?</a>
+</form>
+
+      <form class="auth-form" id="registerForm">
+        <div class="field-group">
+          <label class="field-label">Nombre</label>
+          <div class="input-wrap">
+            <span class="input-icon" data-icon="user"></span>
+            <input type="text" class="input has-icon" id="regName" placeholder="Tu nombre" required/>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Correo</label>
+          <div class="input-wrap">
+            <span class="input-icon" data-icon="mail"></span>
+            <input type="email" class="input has-icon" id="regEmail" placeholder="tu@correo.com" required/>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Contraseña</label>
+          <div class="input-wrap">
+            <span class="input-icon" data-icon="lock"></span>
+            <input type="password" class="input has-icon" id="regPass" placeholder="Mínimo 8 caracteres" required/>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Confirmar contraseña</label>
+          <div class="input-wrap">
+            <span class="input-icon" data-icon="lock"></span>
+            <input type="password" class="input has-icon" id="regPass2" placeholder="Repite la contraseña" required/>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">
+          <span>Crear cuenta</span>
+          <span data-icon="arrowRight"></span>
+        </button>
+        <p class="auth-error" id="registerError"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+.theme-fab {
+  position: fixed;
+  top: 16px; right: 16px;
+  width: 40px; height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  backdrop-filter: blur(40px) saturate(140%);
+  color: var(--text);
+  cursor: pointer;
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--t-fast), transform var(--t-fast);
+}
+.theme-fab:hover { background: var(--hover); transform: rotate(15deg); }
+.theme-fab .theme-label { display: none; }
+</style>
+
+<script src="js/icons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/state.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

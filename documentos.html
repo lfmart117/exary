@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Exary HQ — Documentos</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="js/early-theme.js"></script>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/settings.css"/>
+<link rel="stylesheet" href="css/documentos.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+<div class="page-bg"></div>
+
+<script src="js/icons.js"></script>
+<script src="js/state.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/dialogs.js"></script>
+<script src="js/catpicker.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/notify.js"></script>
+<script>injectSidebar('documentos');</script>
+
+<div class="page-wrap">
+  <div class="topbar">
+    <span class="topbar-title">Documentos</span>
+    <label class="btn btn-primary" style="cursor:pointer">
+      <span data-icon="plus"></span>
+      <span>Subir documento</span>
+      <input type="file" id="fileInput" accept=".pdf,.docx,.odt,.txt" hidden/>
+    </label>
+  </div>
+
+  <div class="content">
+    <div class="upload-zone card" id="uploadZone">
+      <div class="upload-icon-wrap" data-icon="upload"></div>
+      <p class="upload-title">Arrastra documentos aquí</p>
+      <p class="upload-sub">PDF · DOCX · ODT · TXT</p>
+      <div class="upload-progress" id="uploadProgress" style="display:none">
+        <div class="progress-bar" id="progressBar"></div>
+        <span class="upload-status-label" id="uploadStatus"></span>
+      </div>
+    </div>
+
+    <div class="docs-toolbar">
+      <div class="search-wrap">
+        <span class="input-icon" data-icon="search"></span>
+        <input type="text" class="input has-icon" id="searchInput" placeholder="Buscar documento..."/>
+      </div>
+      <div class="filter-btns">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="pdf">PDF</button>
+        <button class="filter-btn" data-filter="docx">DOCX</button>
+        <button class="filter-btn" data-filter="odt">ODT</button>
+        <button class="filter-btn" data-filter="txt">TXT</button>
+      </div>
+      <div class="view-btns">
+        <button class="view-btn active" id="viewGrid" data-icon="grid"></button>
+        <button class="view-btn" id="viewList" data-icon="list"></button>
+      </div>
+    </div>
+
+    <div class="docs-grid" id="docsList"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="js/config.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/documentos.js"></script>
+</body>
+</html>

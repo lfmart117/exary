@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Exary HQ — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="js/early-theme.js"></script>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/settings.css"/>
+<style>
+  .home-content {
+    margin-left: calc(var(--sidebar-w) + 16px);
+    margin-right: 8px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+    z-index: 1;
+  }
+  .home-text { text-align: center; max-width: 600px; }
+  .home-greeting {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .home-headline {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .home-headline span {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .home-sub {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .home-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="page-bg"></div>
+
+<script src="js/icons.js"></script>
+<script src="js/state.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/db.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/notify.js"></script>
+<script>injectSidebar('home'); const el=document.getElementById('userName'); if(el) el.textContent=ExaryState.user.nombre||'estudiante';</script>
+
+<div class="home-content">
+  <div class="home-text fade-up">
+    <img src="assets/logo.png" alt="Exary HQ" style="width:80px;height:80px;object-fit:contain;margin-bottom:16px;filter:drop-shadow(0 4px 20px rgba(79,142,247,0.4))">
+    <p class="home-greeting">Bienvenido de vuelta</p>
+    <h1 class="home-headline">Todo listo para<br/>empezar, <span id="userName"></span></h1>
+    <p class="home-sub">Tu espacio de productividad inteligente está listo.<br/>¿Por dónde empezamos hoy?</p>
+    <div class="home-actions">
+      <a href="documentos.html" class="btn btn-primary">
+        <span data-icon="upload"></span>
+        <span>Subir documento</span>
+      </a>
+      <a href="dashboard.html" class="btn btn-ghost">
+        <span data-icon="dashboard"></span>
+        <span>Ver dashboard</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('userName').textContent = ExaryState.user.nombre;
+</script>
+</body>
+</html>
